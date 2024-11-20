@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.dagger.hilt.plugin)
     alias(libs.plugins.kapt.compiler)
     alias(libs.plugins.safe.args.plugin)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -50,12 +51,14 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.lifecycle.livedata.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(project("::data"))
-    implementation(project("::domain"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
     implementation(libs.kotlin.coroutines)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -66,11 +69,11 @@ dependencies {
     implementation(libs.adapter.delegates.viewBinding)
     implementation(libs.retrofit2)
     implementation(libs.gsonConverter)
-    implementation(libs.androidx.room)
-    implementation(libs.androidx.room.coroutines)
-    kapt(libs.room.kapt.compiler)
+    implementation(libs.gson)
     implementation(libs.androidx.dataStore)
     implementation(libs.glide)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.vk.sdk.core)
+    implementation(libs.vk.sdk.api)
 }

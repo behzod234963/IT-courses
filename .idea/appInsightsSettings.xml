@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AppInsightsSettings">
+    <option name="selectedTabId" value="Android Vitals" />
     <option name="tabSettings">
       <map>
         <entry key="Android Vitals">
@@ -10,6 +11,11 @@
                 <ConnectionSetting>
                   <option name="appId" value="coder.behzod" />
                 </ConnectionSetting>
+              </option>
+              <option name="failureTypes">
+                <list>
+                  <option value="ANR" />
+                </list>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
               <option name="timeIntervalDays" value="SEVEN_DAYS" />
@@ -22,11 +28,17 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.mr.anonym.it_courses" />
+                  <option name="mobileSdkAppId" value="1:232950779199:android:40cbe0018a96c9ec47178a" />
+                  <option name="projectId" value="it-courses-15218" />
+                  <option name="projectNumber" value="232950779199" />
                 </ConnectionSetting>
+              </option>
+              <option name="failureTypes">
+                <list>
+                  <option value="ANR" />
+                  <option value="NON_FATAL" />
+                </list>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
               <option name="timeIntervalDays" value="THIRTY_DAYS" />

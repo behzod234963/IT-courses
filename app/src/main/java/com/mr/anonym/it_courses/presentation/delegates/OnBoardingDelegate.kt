@@ -4,12 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
+import com.mr.anonym.domain.model.CoursesModel
 import com.mr.anonym.it_courses.R
 import com.mr.anonym.it_courses.presentation.viewHolder.OnBoardingViewHolder
 
-class OnBoardingDelegate : AdapterDelegate<List<TextItem>>() {
+class OnBoardingDelegate : AdapterDelegate<List<CoursesModel>>() {
     override fun isForViewType(
-        items: List<TextItem>,
+        items: List<CoursesModel>,
         position: Int
     ): Boolean {
         return true
@@ -22,15 +23,13 @@ class OnBoardingDelegate : AdapterDelegate<List<TextItem>>() {
     }
 
     override fun onBindViewHolder(
-        items: List<TextItem>,
+        items: List<CoursesModel>,
         position: Int,
         holder: RecyclerView.ViewHolder,
         payloads: List<Any?>
     ) {
 
         val textItem = items[position]
-        (holder as OnBoardingViewHolder).tvText.text = textItem.text
+        (holder as OnBoardingViewHolder).tvText.text = textItem.title
     }
 }
-
-data class TextItem(val text: String)

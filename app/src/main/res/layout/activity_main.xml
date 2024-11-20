@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -22,6 +22,7 @@
         android:id="@+id/bottomNavigation"
         app:menu="@menu/bottom_navigation_menu"
         app:backgroundTint="#E2E4E1"
+        android:layout_gravity="bottom"
         app:labelVisibilityMode="labeled"
         android:layout_height="wrap_content" />
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

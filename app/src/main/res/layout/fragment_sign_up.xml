@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:padding="20dp"
+    tools:context=".presentation.fragment.SignUpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.9"
+        android:gravity="bottom|center"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/tvTitle_SingUp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:gravity="bottom|start"
+            android:text="Регистрация"
+            android:textColor="#F2F2F3"
+            android:textSize="28sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="Email"
+                android:textColor="#F2F2F3"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etEmail_SingUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/et_auth_bg"
+                android:hint="example@gmail.com"
+                android:paddingStart="20dp"
+                android:textColor="#F2F2F3"
+                android:textColorHint="#94949B" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="Пароль"
+                android:textColor="#F2F2F3"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPassword_SignUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/et_auth_bg"
+                android:hint="Введите пароль"
+                android:paddingStart="20dp"
+                android:textColor="#F2F2F3"
+                android:textColorHint="#94949B" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:orientation="vertical"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:paddingBottom="5dp"
+                android:text="Повторить пароль"
+                android:textColor="#F2F2F3"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPassword_SingUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/et_auth_bg"
+                android:hint="Введите пароль ещё раз"
+                android:paddingStart="20dp"
+                android:textColor="#F2F2F3"
+                android:textColorHint="#94949B" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="10dp">
+
+            <Button
+                android:id="@+id/btnSignIn_SignUp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sign_btn_bg"
+                android:text="Вход"
+                android:textSize="16sp"
+                app:backgroundTint="@null" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top|center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Нету аккаунта?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvSingUp_SingUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Регистрация"
+                        android:textColor="#12B956"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top|center">
+
+                    <TextView
+                        android:id="@+id/tvForgot_SingUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Забыл пароль"
+                        android:textColor="#12B956"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.8"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="15dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="#4D555E"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnSignVk_SingUp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_vk_auth"
+                android:src="@drawable/ic_vk"
+                android:text="Вход"
+                android:textSize="18sp"
+                app:backgroundTint="@null" />
+
+            <ImageButton
+                android:id="@+id/btnSignOK_SingUp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_ok_auth"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_ok"
+                android:text="Вход"
+                android:textSize="18sp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

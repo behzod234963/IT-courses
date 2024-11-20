@@ -3,18 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/onBoardingFragment">
+    app:startDestination="@id/mainFragment">
 
-    <fragment
-        android:id="@+id/onBoardingFragment"
-        android:name="com.mr.anonym.it_courses.presentation.fragment.OnBoardingFragment"
-        android:label="fragment_on_boarding"
-        tools:layout="@layout/fragment_on_boarding" />
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.mr.anonym.it_courses.presentation.fragment.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_courseFragment"
+            app:destination="@id/courseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/courseFragment"
         android:name="com.mr.anonym.it_courses.presentation.fragment.CourseFragment"
@@ -24,7 +23,11 @@
         android:id="@+id/favoriteCourseFragment"
         android:name="com.mr.anonym.it_courses.presentation.fragment.FavoriteCourseFragment"
         android:label="fragment_favorite_course"
-        tools:layout="@layout/fragment_favorite_course" />
+        tools:layout="@layout/fragment_favorite_course" >
+        <action
+            android:id="@+id/action_favoriteCourseFragment_to_courseFragment"
+            app:destination="@id/courseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.mr.anonym.it_courses.presentation.fragment.ProfileFragment"
