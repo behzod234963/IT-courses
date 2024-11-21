@@ -21,7 +21,9 @@
         android:layout_width="match_parent"
         android:id="@+id/bottomNavigation"
         app:menu="@menu/bottom_navigation_menu"
-        app:backgroundTint="#E2E4E1"
+        app:backgroundTint="#24252A"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="#94949B"
         android:layout_gravity="bottom"
         app:labelVisibilityMode="labeled"
         android:layout_height="wrap_content" />

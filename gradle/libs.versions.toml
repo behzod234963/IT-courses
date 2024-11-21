@@ -27,6 +27,8 @@ gson = "2.9.0"
 kspCompiler = "2.0.21-1.0.27"
 vkSDK = "4.1.0"
 lifecycleLivedataCore = "2.6.2"
+okSDK = "2.0.3"
+okAuth = "2.2.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -64,6 +66,8 @@ ksp-compiler = { group = "androidx.room" , name = "room-compiler" , version.ref 
 vk-sdk-core = { group = "com.vk" , name = "android-sdk-core" , version.ref = "vkSDK" }
 vk-sdk-api = { group = "com.vk" , name = "android-sdk-api" , version.ref = "vkSDK" }
 androidx-lifecycle-livedata-core = { group = "androidx.lifecycle", name = "lifecycle-livedata-core", version.ref = "lifecycleLivedataCore" }
+okSdk = { group = "ru.ok" , name = "odnoklassniki-android-sdk" , version.ref = "okSDK"}
+okAuth = { group = "ru.ok" , name = "oauth" , version.ref = "okAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

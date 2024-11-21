@@ -1,5 +1,6 @@
 package com.mr.anonym.it_courses.presentation.fragment
 
+import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,14 +15,23 @@ import com.google.firebase.auth.FirebaseAuth
 import com.mr.anonym.data.local.dataStore.DataStoreInstance
 import com.mr.anonym.it_courses.R
 import com.mr.anonym.it_courses.databinding.FragmentSignInBinding
+import com.mr.anonym.it_courses.di.app.CoursesApp
 import com.mr.anonym.it_courses.presentation.activity.MainActivity
+import com.mr.anonym.it_courses.presentation.utils.appID
+import com.mr.anonym.it_courses.presentation.utils.appKEY
 import com.mr.anonym.it_courses.presentation.viewModel.WelcomeViewModel
 import com.vk.api.sdk.auth.VKAuthenticationResult
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import ru.ok.android.sdk.Odnoklassniki
+import ru.ok.android.sdk.util.OkAuthType
+import ru.ok.android.sdk.util.OkScope
 import javax.inject.Inject
 
+@Suppress("OVERRIDE_DEPRECATION")
+@AndroidEntryPoint
 class SignInFragment : Fragment() {
 
     @Inject
@@ -29,6 +39,7 @@ class SignInFragment : Fragment() {
     lateinit var auth: FirebaseAuth
     lateinit var authManager: VKAuthenticationResult
     lateinit var binding: FragmentSignInBinding
+    lateinit var ok: Odnoklassniki
     private val welcomeViewModel: WelcomeViewModel by viewModels()
 
     override fun onCreateView(
@@ -47,6 +58,7 @@ class SignInFragment : Fragment() {
 
     private fun initializeViews() {
 
+        ok = Odnoklassniki.createInstance(CoursesApp(), appID, appKEY)
         FirebaseApp.initializeApp(requireContext())
         auth = FirebaseAuth.getInstance()
         var isAuthorized = false
@@ -64,12 +76,13 @@ class SignInFragment : Fragment() {
                     if (!isAuthorized){
                         CoroutineScope(Dispatchers.IO).launch {
                             welcomeViewModel.signInWithFirebase(auth,email, password)
-                            if (welcomeViewModel.userFireBase.value == auth.currentUser){
+                            if (welcomeViewModel.user.value == auth.currentUser){
+                                dataStoreInstance.saveEmail(email)
                                 dataStoreInstance.setIsAuthorized(true)
                                 dataStoreInstance.getIsAuthorized().collect{
                                     isAuthorized = it
                                 }
-                                dataStoreInstance.firebaseUser(welcomeViewModel.userFireBase.value!!)
+                                dataStoreInstance.firebaseUser(welcomeViewModel.user.value!!)
                                 Intent(requireContext(), MainActivity::class.java).also {
                                     startActivity(it)
                                 }
@@ -93,7 +106,7 @@ class SignInFragment : Fragment() {
 
                 if (!isAuthorized) {
                     welcomeViewModel.signInWithVK(requireActivity())
-                    welcomeViewModel.vkUserToken.observe(viewLifecycleOwner) {
+                    welcomeViewModel.userToken.observe(viewLifecycleOwner) {
                         token = it
                     }
                 } else {
@@ -102,8 +115,20 @@ class SignInFragment : Fragment() {
                     }
                 }
             }
-            tvSingUpSingIn.setOnClickListener {
+            tvSignUpSignIn.setOnClickListener {
                 findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
+            }
+            btnSignOKSingIn.setOnClickListener{
+                if (!isAuthorized){
+                    welcomeViewModel.signInWithOK(ok,requireActivity(), CoursesApp())
+                    CoroutineScope(Dispatchers.Default).launch{
+                        dataStoreInstance.setIsAuthorized(true)
+                    }
+                }else{
+                    Intent(requireContext(), MainActivity::class.java).also {
+                        startActivity(it)
+                    }
+                }
             }
         }
     }

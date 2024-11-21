@@ -76,4 +76,6 @@ dependencies {
     implementation(libs.navigation.ui)
     implementation(libs.vk.sdk.core)
     implementation(libs.vk.sdk.api)
+    implementation(libs.okSdk)
+
 }
